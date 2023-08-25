@@ -1,6 +1,8 @@
 import React from 'react';
+import Link from 'next/link';
 
 export interface ProductType {
+  id: number;
   image: string | undefined;
   name: string;
   description: string;
@@ -14,11 +16,24 @@ const ProductPage: React.FC<{ product: ProductType | undefined }> = ({ product }
   }
 
   return (
-    <div className='flex gap-4 flex-col items-center'>
+    <div className='flex flex-col items-center'>
       <p>{product.name}</p>
-      <img className='h-auto w-96' src={product.image} alt={product.name} />
-      <h2 className='text-xl font-semibold'>{product.description}</h2>
-      <p>${product.price}</p>
+      <img className='mb-2 h-auto w-96' src={product.image} alt={product.name} />
+      <h2 className='mb-2 text-xl'>{product.description}</h2>
+      <p className='mb-2 font-light'>${product.price}</p>
+      <Link
+        href={{
+          pathname: '/purchase',
+          query: { productId: product.id,
+            name: product.name,
+            description: product.description,
+            price: product.price,
+            image: product.image,
+          },
+        }} as={`/purchase/${product.id}`}
+        className='mb-6 bg-black text-white hover:text-black hover:bg-gray-300 w-full py-3 text-center m-auto'>
+        BUY NOW
+      </Link>   
     </div>
   );
 };
