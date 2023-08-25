@@ -38,7 +38,7 @@ const LandingPage = () => {
           <div className="lg:w-1/2 flex flex-col gap-6 text-black lg:px-12">
             <h1 className="lg:text-5xl text-4xl font-bold mb-4">Digital Business Card</h1>
             <p className="lg:text-xl">Create your own NFC business card with latest technologies & share it anywhere</p>
-            <a className='text-white text-center px-6 py-3 bg-black' href="">GET YOURS  →</a>
+            <a className='text-white text-center px-6 py-3 bg-black' href="/productpage">GET YOURS  →</a>
           </div>
         </div>
       </section>
@@ -70,7 +70,7 @@ const LandingPage = () => {
             <p className="lg:text-xl">2. Present your Smartap®</p>
             <p className="lg:text-xl">3. Tap your Smartap® on your client’s phone</p>
             <p className="lg:text-xl">4. Your Google review page will open up</p>
-            <a className='text-white text-center px-6 py-3 bg-black' href="">GET YOURS  →</a>
+            <a className='text-white text-center px-6 py-3 bg-black' href="/productpage">GET YOURS  →</a>
           </div>
           <div className="lg:w-1/2 lg:px-12">
             <img src="images/nfc.gif" alt="Product" className="mx-auto rounded-lg"/>
