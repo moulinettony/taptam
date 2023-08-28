@@ -39,13 +39,13 @@ const ProductPurchasePage: React.FC = () => {
   return (
     <div>
         <Navbar/>
-        <div className="flex flex-col items-center py-14 justify-center">
+        <div className="flex bg-gray-100 flex-col items-center py-14 justify-center">
             <h1 className="text-3xl font-semibold mb-4">Purchase {name}</h1>
-            <div className="max-w-md p-4 text-center rounded-lg lg:shadow-lg">
+            <div className="lg:max-w-xl p-8 text-center rounded-lg bg-white lg:shadow-lg">
                 <img src={imageUrl} alt="Logo" className="mb-4 rounded-lg" />
                 <h3 className="font-bold text-2xl">{description}</h3>
                 <p className="text-lg text-gray-600 font-semibold mt-2">${price}</p>
-                <button className="mt-4 px-4 w-3/5 py-2 bg-black text-white hover:bg-gray-200 hover:text-black rounded-lg">
+                <button className="mt-4 px-4 w-3/5 py-2 bg-black text-white hover:bg-gray-200 hover:text-black">
                 BUY NOW
                 </button>
             </div>
