@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+{/*import React, { useEffect, useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
 interface CheckoutFormProps {
@@ -52,3 +52,4 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ clientSecret }) => {
 };
 
 export default CheckoutForm;
+*/}
