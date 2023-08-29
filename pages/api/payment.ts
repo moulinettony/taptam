@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+{/*import { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
@@ -30,4 +30,4 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   } else {
     res.status(405).end(); // Method Not Allowed
   }
-}
+}*/}
