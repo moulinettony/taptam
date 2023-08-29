@@ -37,7 +37,7 @@ const LandingPage = () => {
           </div>
           <div className="lg:w-1/2 flex flex-col gap-6 text-black lg:px-12">
             <h1 className="lg:text-5xl text-4xl font-bold mb-4">Digital Business Card</h1>
-            <p className="lg:text-xl">Create your own NFC business card with latest technologies & share it anywhere</p>
+            <p className="lg:text-xl">Create your own NFC business card with latest technologies & share it anywhere.</p>
             <a className='text-white text-center px-6 py-3 bg-black' href="/productpage">GET YOURS  →</a>
           </div>
         </div>
