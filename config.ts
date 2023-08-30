@@ -1,0 +1,2 @@
+export const STRIPE_PUBLISHABLE_KEY: string = 'pk_test_51NjsecJQ1wslCVrTQFydV4OYmm6wu9jf5JSXoR916qJScWYpaXZmByvCcwq1DkJRvBOqkInRKbVS18MpIedW1LNK00Uv6ZSUcw';
+export const STRIPE_SECRET_KEY: string = 'sk_test_51NjsecJQ1wslCVrTL0mV0HIxKooYG4qciQfrNswmDZoOKfMg2wRp4nVBdjufJSfXQuNgAzrhsRTKCacjpAGG3Fhj00nfPuofrN';
