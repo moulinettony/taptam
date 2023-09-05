@@ -18,7 +18,7 @@ const ProductPage: React.FC<{ product: ProductType | undefined }> = ({ product }
   return (
     <div className='flex flex-col items-center'>
       <p>{product.name}</p>
-      <img className='mb-2 h-auto w-96' src={product.image} alt={product.name} />
+      <img className='mb-2 h-auto productimg min-w-[250px] lg:min-w-[300px]' src={product.image} alt={product.name} />
       <h2 className='mb-2 text-xl'>{product.description}</h2>
       <p className='mb-2 font-light'>${product.price}</p>
       <Link

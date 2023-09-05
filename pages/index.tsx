@@ -30,6 +30,7 @@ const LandingPage = () => {
   return (
     <div className='bg-gray-100'>
       <Navbar/>
+      <div id="root"></div>
       <section className="container px-6 mx-auto py-14 justify-center h-screen flex items-center">
         <div className="flex max-lg:flex-col max-lg:gap-10 lg:text-left text-center items-center justify-around">
           <div className="lg:w-1/2">

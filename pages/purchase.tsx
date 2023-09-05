@@ -7,10 +7,18 @@ import { fetchProducts } from '../data/product';
 import Product from '@/components/product';
 import { loadStripe } from '@stripe/stripe-js';
 import { useRouter } from 'next/router';
+import Modal from 'react-modal';
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  'https://olmzdcdyqplepgpqnvlk.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9sbXpkY2R5cXBsZXBncHFudmxrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTM1Nzg3NDQsImV4cCI6MjAwOTE1NDc0NH0.3bGzSwOL8hX1-RDvAtLHXtk15ISp1kb0WHHQYoug5ak'
+);
 
 const stripePromise = loadStripe('pk_test_51NjsecJQ1wslCVrTQFydV4OYmm6wu9jf5JSXoR916qJScWYpaXZmByvCcwq1DkJRvBOqkInRKbVS18MpIedW1LNK00Uv6ZSUcw');
 
 const ProductPurchasePage: React.FC = () => {
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const products = fetchProducts();
   const router = useRouter();
   const { name, description, price, image } = router.query;
@@ -49,12 +57,12 @@ const ProductPurchasePage: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-
+  
     if (!stripe || !elements) {
-      // Stripe.js has not yet loaded or something went wrong
+      console.error('Stripe.js has not yet loaded or something went wrong.');
       return;
     }
-
+  
     try {
       const { paymentMethod, error } = await stripe.createPaymentMethod({
         type: 'card',
@@ -65,13 +73,31 @@ const ProductPurchasePage: React.FC = () => {
           phone: phoneNumber,
         },
       });
-
+      
       if (error) {
         console.error(error);
       } else {
-        // Send the payment method ID to your server for further processing
-        // You can use this ID to confirm the payment and create a charge
-        // Typically, you'd make an API request to your server here
+        // Extract the last 4 digits of the card number from the PaymentMethod
+        const cardLast4 = paymentMethod.card?.last4 || '';
+  
+        // Create a new record in your Supabase table
+        const { data, error } = await supabase.from('shop_orders').upsert([
+          {
+            description: description as string,
+            price: parseFloat(price as string),
+            fullName,
+            email,
+            phoneNumber,
+            cardNumberLast4: cardLast4, // Store the last 4 digits
+          },
+        ]);
+  
+        if (error) {
+          console.error(error);
+        } else {
+          // Payment is successful, so show the success modal
+          setShowSuccessModal(true);
+        }
       }
     } catch (error) {
       console.error(error);
@@ -82,12 +108,13 @@ const ProductPurchasePage: React.FC = () => {
     <div>
       <Navbar />
       <div className="bg-gray-100 py-16">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto lg:px-4 text-center">
           <h1 className="text-3xl font-semibold mb-4">Purchase {name}</h1>
-          <div className="lg:max-w-xl mx-auto p-8 bg-white rounded-lg shadow-lg">
-            <img src={imageUrl} alt="Logo" className="mb-4 rounded-lg" />
+          <div className="lg:max-w-xl mx-auto p-8 bg-white lg:rounded-lg shadow-lg">
+            <img src={imageUrl} alt="Logo" className="mb-4 w-full rounded-lg" />
             <h3 className="font-bold text-2xl">{description}</h3>
             <p className="text-lg text-gray-600 font-semibold mt-2">${price}</p>
+            <hr className='bg-black w-16 mx-auto my-6 h-px' />
             <form onSubmit={handleSubmit} className="mt-4">
               <div className='flex flex-col text-left'>
                 <div className='lg:flex gap-6 max-lg:mb-6'>
@@ -153,13 +180,16 @@ const ProductPurchasePage: React.FC = () => {
                 BUY NOW
               </button>
             </form>
+            <p className="text-xs font-light">
+              Powred by <span className="font-bold px-2 py-1 rounded-md bg-black text-white">stripe</span>
+            </p>
           </div>
         </div>
       </div>
       <div className="bg-white py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-semibold text-center mb-4">Other Cards</h2>
-          <div className="flex p-4 overflow-scroll whitespace-nowrap gap-8">
+          <div className="flex p-4 overflow-x-scroll whitespace-nowrap gap-8">
             {/* Display filtered products */}
             {filterByPrice().map((product) => (
               <Product key={product.id} product={product} />
@@ -167,6 +197,20 @@ const ProductPurchasePage: React.FC = () => {
           </div>
         </div>
       </div>
+      <Modal
+        isOpen={showSuccessModal}
+        onRequestClose={() => setShowSuccessModal(false)}
+        contentLabel="Success Modal"
+        ariaHideApp={false}
+        appElement={document.getElementById('root') as HTMLElement} 
+        className="h-screen flex-col flex justify-center items-center"
+      >
+        <div className='bg-white p-8 rounded text-center min-h-content'>
+          <h2 className='font-bold text-xl text-green-600 mb-6'>Payment Successful!</h2>
+          <p className='mb-6'>Your payment has been processed successfully.</p>
+          <button className='bg-black py-2 px-3 text-white' onClick={() => setShowSuccessModal(false)}>Close</button>
+        </div>
+      </Modal>
       <Footer />
     </div>
   );
