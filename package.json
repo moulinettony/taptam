@@ -20,12 +20,14 @@
   "dependencies": {
     "@stripe/react-stripe-js": "^2.1.2",
     "@supabase/supabase-js": "^2.33.1",
+    "@supabase/ui": "^0.36.5",
     "@tailwindcss/forms": "^0.5.0",
     "@tailwindcss/typography": "^0.5.2",
     "@types/react-modal": "^3.16.0",
     "dotenv": "^16.3.1",
     "eslint-config-next": "^13.1.1",
-    "next": "^13.1.1",
+    "next": "^13.4.19",
+    "next-auth": "^4.23.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
@@ -35,6 +37,7 @@
   },
   "devDependencies": {
     "@stripe/stripe-js": "^2.1.0",
+    "@types/next-auth": "^3.15.0",
     "@types/node": "^14.18.56",
     "@types/react": "^17.0.65",
     "autoprefixer": "^10.4.4",
