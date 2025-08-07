@@ -10,7 +10,7 @@ export default function Home() {
           <h1 className="lg-text-6xl text-5xl font-bold">Faîtes briller <br />
             votre entreprise !</h1>
           <p className="text-md font-light text-gray-500">Boostez vos avis client et augmentez votre visibilité grâce à notre application</p>
-          <Link href="https://card.taptam.com/application" aria-label="Telecharger Taptam" className="bg-[#006EFE] hover:bg-blue-600 text-white font-medium py-3 px-20 w-fit cursor-pointer">
+          <Link href="https://card.taptam.com/application" aria-label="Telecharger Taptam" className="max-lg:hidden bg-[#006EFE] hover:bg-blue-600 text-white font-medium py-3 px-20 w-fit cursor-pointer">
             Télécharger TapTam
           </Link>
           <div className="flex gap-4">
@@ -42,7 +42,7 @@ export default function Home() {
             alt="Feature illustration"
             width={500}
             height={400}
-            className="object-contain max-lg:hidden w-full drop-shadow-xl"
+            className="object-contain max-lg:hidden w-full"
             priority
           />
           <Image
@@ -50,12 +50,16 @@ export default function Home() {
             alt="Feature illustration"
             width={500}
             height={400}
-            className="object-contain lg:hidden w-full drop-shadow-xl"
+            className="object-contain lg:hidden w-full"
             priority
           />
         </div>
       </section>
-
+      <div className="fixed bottom-0 bg-white p-4 w-screen flex justify-center lg:hidden z-10">
+        <Link href="https://card.taptam.com/application" aria-label="Telecharger Taptam" className="bg-[#006EFE] hover:bg-blue-600 text-white font-medium py-3 px-20 w-fit cursor-pointer">
+            Télécharger TapTam
+          </Link>
+      </div>
       <section className="bg-white py-20 md:py-24">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center">
@@ -351,7 +355,7 @@ export default function Home() {
           className="object-cover -z-10"
         />
         <div className="absolute inset-0 bg-black/10 -z-10"></div>
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-4 text-center flex flex-col items-center">
           <h2 className="lg:text-4xl text-3xl md:text-4xl font-bold text-white">
             Prêt à faire rayonner <br />
             votre entreprise ?
@@ -359,7 +363,7 @@ export default function Home() {
           <p className="mt-4 font-light text-lg text-gray-200 max-w-2xl mx-auto">
             TapTam vous accompagne pour renforcer votre crédibilité !
           </p>
-          <Link href="https://card.taptam.com/application" aria-label="Telecharger Taptam" className="bg-white hover:bg-neutral-100 text-[#006EFE] font-medium py-3 px-20 w-fit cursor-pointer mt-8">
+          <Link href="https://card.taptam.com/application" aria-label="Telecharger Taptam" className="max-lg:hidden bg-white hover:bg-neutral-100 text-[#006EFE] font-medium py-3 px-20 w-fit cursor-pointer mt-4">
             Télécharger TapTam
           </Link>
           <div className="flex gap-4 justify-center mt-4">
