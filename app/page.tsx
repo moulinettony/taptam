@@ -10,11 +10,11 @@ export default function Home() {
           <h1 className="lg-text-6xl text-5xl font-bold">Faîtes briller <br />
             votre entreprise !</h1>
           <p className="text-md font-light text-gray-500">Boostez vos avis client et augmentez votre visibilité grâce à notre application</p>
-          <button className="bg-[#006EFE] hover:bg-blue-600 text-white font-medium py-3 px-20 w-fit cursor-pointer">
+          <Link href="https://card.taptam.com/application" aria-label="Telecharger Taptam" className="bg-[#006EFE] hover:bg-blue-600 text-white font-medium py-3 px-20 w-fit cursor-pointer">
             Télécharger TapTam
-          </button>
+          </Link>
           <div className="flex gap-4">
-            <Link href="/" className="" aria-label="Go tp play store">
+            <Link href="https://play.google.com/store/apps/details?id=com.taptam" className="" aria-label="Go tp play store">
               <Image
                 src="/playstore.svg"
                 alt="Feature illustration"
@@ -24,7 +24,7 @@ export default function Home() {
                 priority
               />
             </Link>
-            <Link href="/" className="" aria-label="Go tp play store">
+            <Link href="https://apps.apple.com/ma/app/taptam/id6472043881" className="" aria-label="Go tp play store">
               <Image
                 src="/appstore.svg"
                 alt="Feature illustration"
@@ -359,11 +359,11 @@ export default function Home() {
           <p className="mt-4 font-light text-lg text-gray-200 max-w-2xl mx-auto">
             TapTam vous accompagne pour renforcer votre crédibilité !
           </p>
-          <button className="bg-white hover:bg-neutral-100 text-[#006EFE] font-medium py-3 px-20 w-fit cursor-pointer mt-8">
+          <Link href="https://card.taptam.com/application" aria-label="Telecharger Taptam" className="bg-white hover:bg-neutral-100 text-[#006EFE] font-medium py-3 px-20 w-fit cursor-pointer mt-8">
             Télécharger TapTam
-          </button>
+          </Link>
           <div className="flex gap-4 justify-center mt-4">
-            <Link href="/" className="" aria-label="Go tp play store">
+            <Link href="https://play.google.com/store/apps/details?id=com.taptam" className="" aria-label="Go tp play store">
               <Image
                 src="/playstore.svg"
                 alt="Feature illustration"
@@ -373,7 +373,7 @@ export default function Home() {
                 priority
               />
             </Link>
-            <Link href="/" className="" aria-label="Go tp play store">
+            <Link href="https://apps.apple.com/ma/app/taptam/id6472043881" className="" aria-label="Go tp play store">
               <Image
                 src="/appstore.svg"
                 alt="Feature illustration"
