@@ -15,11 +15,11 @@ const Footer = () => {
           className="max-lg:mx-auto"
         />
         <div className="flex gap-5 items-baseline">
-          <Link href="https://taptam.com/terms-of-service/" aria-label="Telecharger Taptam" className="m-0 max-lg:hidden bg-white hover:bg-neutral-100 text-neutral-700 font-medium w-fit cursor-pointer mt-4">
+          <Link href="https://taptam.com/terms-of-service/" aria-label="Telecharger Taptam" className="m-0 text-neutral-700">
             Mentions Légales
           </Link>
           <span className="m-0">-</span>
-          <Link href="https://taptam.com/privacy-policy/" aria-label="Telecharger Taptam" className="m-0 max-lg:hidden bg-white hover:bg-neutral-100 text-neutral-700 font-medium w-fit cursor-pointer mt-4">
+          <Link href="https://taptam.com/privacy-policy/" aria-label="Telecharger Taptam" className="m-0 text-neutral-700">
             Politique de confidentialité
           </Link>
         </div>
